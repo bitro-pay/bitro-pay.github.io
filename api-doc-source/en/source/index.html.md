@@ -157,6 +157,7 @@ productId | String | Your product id.
 productName | String | Your product name.
 userData | Object | User defined data.
 status | String | Invoice status
+amount | Number | Invoice BTC amount
 
 ### Invoice Status
 

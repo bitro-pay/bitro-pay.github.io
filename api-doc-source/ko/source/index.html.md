@@ -160,6 +160,7 @@ productId | String | 제품 아이디
 productName | String | 제품명
 userData | Object | 회원님이 정의한 데이터
 status | String | 결제 상태
+amount | Number | 결제 BTC 수량
 
 ### Invoice Status
 
