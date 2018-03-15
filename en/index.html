@@ -1,0 +1,582 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>BitroPay API Reference</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo.png" class="logo" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">cURL</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#api-v1" class="toc-h1 toc-link" data-title="api-v1">API V1</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#authentication-v1" class="toc-h2 toc-link" data-title="authentication-v1">Authentication - V1</a>
+                  </li>
+                  <li>
+                    <a href="#create-new-invoice-v1" class="toc-h2 toc-link" data-title="create-new-invoice-v1">Create new invoice - V1</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
+          </li>
+      </div>
+        <ul class="toc-footer">
+            <li><a href='https://www.bitro-pay.com'>Sign Up for a API key</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>Welcome to the BitroPay API! You can use our API to access BitroPay API endpoints.</p>
+
+<p>We have language bindings in Shell and Javascript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<h1 id='api-v1'>API V1</h1><h2 id='authentication-v1'>Authentication - V1</h2>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl https://www.bitro-pay.com/api/v1 <span class="se">\</span>
+  -X GET <span class="se">\</span>
+  -H <span class="s2">"Authorization: your.api.key"</span>
+</code></pre>
+<blockquote>
+<p>Make sure to replace <code>your.api.key</code> with your API key.</p>
+
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"resultCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>BitroPay uses API keys to allow access to the API. You can register a new BitroPay API key at our <a href="https://www.bitro-pay.com">website</a>.</p>
+
+<p>BitroPay expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+
+<p><code>Authorization: your.api.key</code></p>
+
+<aside class="notice">
+You must replace <code>your.api.key</code> with your personal API key.
+</aside>
+<h2 id='create-new-invoice-v1'>Create new invoice - V1</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://www.bitro-pay.com/api/v1/invoice"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: your.api.key"</span> <span class="se">\</span>
+  --data <span class="s1">'{ \
+    "productId": "your product id", \ 
+    "productName": "your product name", \ 
+    "productPrice": 10000, \
+    "productCurrency": "KRW", \
+    "redirectURL": "your shop url", \
+    "callbackURL": "call back url", \
+    "userData": {} \
+  }'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"resultCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"invoiceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ZiFztkEo6FHswocXw"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"no"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1520998774032"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"gatewayURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.bitro-pay.com/gateway/invoice/ZiFztkEo6FHswocXw"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"productId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"your product id"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"productName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"your product name"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"productPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"productCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KRW"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"userData"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wait"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.01</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Callback JSON Request Data - POST callbackURL</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"invoiceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ZiFztkEo6FHswocXw"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"no"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1520998774032"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"productId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"your product id"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"productName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"your product name"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"productPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"productCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KRW"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"userData"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.01</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Create an invoice</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://www.bitro-pay.com/api/v1/invoice</code></p>
+<h3 id='parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>productPrice</td>
+<td>Y</td>
+<td>Number</td>
+<td>Your product price.</td>
+</tr>
+<tr>
+<td>productCurrency</td>
+<td>Y</td>
+<td>String</td>
+<td>Price currency (KRW)</td>
+</tr>
+<tr>
+<td>redirectURL</td>
+<td>Y</td>
+<td>String</td>
+<td>After user paid redirect to this url.</td>
+</tr>
+<tr>
+<td>callbackURL</td>
+<td>Y</td>
+<td>String</td>
+<td>Callback url for notify tx status update.</td>
+</tr>
+<tr>
+<td>productId</td>
+<td>N</td>
+<td>String</td>
+<td>Your product id.</td>
+</tr>
+<tr>
+<td>productName</td>
+<td>N</td>
+<td>String</td>
+<td>Your product name.</td>
+</tr>
+<tr>
+<td>userData</td>
+<td>N</td>
+<td>Object</td>
+<td>User defined data. We will send this data when we request your callbackURL.</td>
+</tr>
+</tbody></table>
+<h3 id='response-parameters'>Response Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result</td>
+<td>String</td>
+<td>Result message</td>
+</tr>
+<tr>
+<td>resultCode</td>
+<td>Number</td>
+<td>Result code.</td>
+</tr>
+<tr>
+<td>data</td>
+<td>Object</td>
+<td>Result data</td>
+</tr>
+<tr>
+<td>data.invoiceId</td>
+<td>String</td>
+<td>New invoice ID.</td>
+</tr>
+<tr>
+<td>data.no</td>
+<td>String</td>
+<td>New invoice number.</td>
+</tr>
+<tr>
+<td>data.gatewayURL</td>
+<td>String</td>
+<td>Gateway url for payment.</td>
+</tr>
+<tr>
+<td>data.productId</td>
+<td>String</td>
+<td>Your product ID.</td>
+</tr>
+<tr>
+<td>data.productName</td>
+<td>String</td>
+<td>Your product name.</td>
+</tr>
+<tr>
+<td>data.productPrice</td>
+<td>String</td>
+<td>Your product price.</td>
+</tr>
+<tr>
+<td>data.productCurrency</td>
+<td>String</td>
+<td>Price currency.</td>
+</tr>
+<tr>
+<td>data.userData</td>
+<td>String</td>
+<td>User defined data.</td>
+</tr>
+<tr>
+<td>data.status</td>
+<td>String</td>
+<td>Invoice status</td>
+</tr>
+<tr>
+<td>data.amount</td>
+<td>Number</td>
+<td>BTC amount</td>
+</tr>
+</tbody></table>
+<h3 id='callback-request-parameters'>Callback Request Parameters</h3>
+<p><code>POST callbackURL</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>invoiceId</td>
+<td>String</td>
+<td>Invoice ID</td>
+</tr>
+<tr>
+<td>no</td>
+<td>String</td>
+<td>Invoice number</td>
+</tr>
+<tr>
+<td>productPrice</td>
+<td>Number</td>
+<td>Your product price.</td>
+</tr>
+<tr>
+<td>productCurrency</td>
+<td>String</td>
+<td>Price currency (KRW)</td>
+</tr>
+<tr>
+<td>productId</td>
+<td>String</td>
+<td>Your product id.</td>
+</tr>
+<tr>
+<td>productName</td>
+<td>String</td>
+<td>Your product name.</td>
+</tr>
+<tr>
+<td>userData</td>
+<td>Object</td>
+<td>User defined data.</td>
+</tr>
+<tr>
+<td>status</td>
+<td>String</td>
+<td>Invoice status</td>
+</tr>
+</tbody></table>
+<h3 id='invoice-status'>Invoice Status</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ok</td>
+<td>Client paid</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>Timeout</td>
+</tr>
+<tr>
+<td>wait</td>
+<td>Waiting for pay</td>
+</tr>
+<tr>
+<td>amountLow</td>
+<td>Amount is lower than request amount</td>
+</tr>
+<tr>
+<td>amountOver</td>
+<td>Amount is higher than request amount</td>
+</tr>
+<tr>
+<td>confirmFail</td>
+<td>Confirmation is failed.</td>
+</tr>
+<tr>
+<td>confirmed</td>
+<td>Complete 2 confirmation. You can shipping your product.</td>
+</tr>
+</tbody></table>
+<h1 id='errors'>Errors</h1>
+<p>The BitroPay API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>BitroPay Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>4000</td>
+<td>Request data format error</td>
+</tr>
+<tr>
+<td>4010</td>
+<td>Authorization Header Missing - You need to add API Key to Authorization header.</td>
+</tr>
+<tr>
+<td>4011</td>
+<td>Authorization Header is malformed - Please check your Authorization header string.</td>
+</tr>
+<tr>
+<td>4012</td>
+<td>Token is expired - Use new token for authorization.</td>
+</tr>
+<tr>
+<td>4013</td>
+<td>User does not exists - API Key owner removed.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">cURL</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

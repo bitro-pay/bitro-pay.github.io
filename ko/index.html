@@ -1,0 +1,586 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>BitroPay API 문서</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo.png" class="logo" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">cURL</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#api-v1" class="toc-h1 toc-link" data-title="api-v1">API V1</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#v1" class="toc-h2 toc-link" data-title="v1">인증방법 - V1</a>
+                  </li>
+                  <li>
+                    <a href="#v1-2" class="toc-h2 toc-link" data-title="v1">새로운 송장 생성 - V1</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#82dac39707" class="toc-h1 toc-link" data-title="">에러</a>
+          </li>
+      </div>
+        <ul class="toc-footer">
+            <li><a href='https://www.bitro-pay.com'>API 키 발금받으러 가기</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>BitroPay API 페이지에 방문하신걸 환영합니다. API 를 이용하여 비트코인 결제 시스템을 홈페이지에 연동하실 수 있습니다. </p>
+
+<p>우측에 있는 영역에서 예제 코드를 보실 수 있습니다. 탭을 선택하여 언어를 변경하실 수 있습니다.</p>
+<h1 id='api-v1'>API V1</h1><h2 id='v1'>인증방법 - V1</h2>
+<blockquote>
+<p>아래코드를 이용하여 API 키가 정상작동하는지 간단하게 확인 할 수 있습니다.</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="c"># 쉘을열고 아래코드를 붙여넣으세요.</span>
+curl https://www.bitro-pay.com/api/v1 <span class="se">\</span>
+  -X GET <span class="se">\</span>
+  -H <span class="s2">"Authorization: your.api.key"</span>
+</code></pre>
+<blockquote>
+<p><code>your.api.key</code> 부분을 회원님의 API 키로 변경해주세요.</p>
+
+<p>위 코드를 입력하면 다음과 같은 응답을 확인하실 수 있습니다.</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"resultCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>BitroPay API 를 이용하기 위해서는 API 키가 필요합니다.
+API 키는 <a href="https://www.bitro-pay.com/merchant/setting">website</a> 에서 확인하실 수 있습니다.
+API 키는 모든 API 요청 해더에 공통으로 사용 됩니다. 반드시 해더정보에 아래와 같이 추가해주세요.</p>
+
+<p><code>Authorization: your.api.key</code></p>
+
+<aside class="notice">
+<code>your.api.key</code> 부분을 회원님의 API 키로 변경해주세요.
+</aside>
+<h2 id='v1-2'>새로운 송장 생성 - V1</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://www.bitro-pay.com/api/v1/invoice"</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: your.api.key"</span> <span class="se">\</span>
+  --data <span class="s1">'{ \
+    "productId": "your product id", \ 
+    "productName": "your product name", \ 
+    "productPrice": 10000, \
+    "productCurrency": "KRW", \
+    "redirectURL": "your shop url", \
+    "callbackURL": "call back url", \
+    "userData": {} \
+  }'</span>
+</code></pre>
+<blockquote>
+<p>위 코드를 입력하면 다음과 같은 응답을 확인하실 수 있습니다.</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"resultCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"invoiceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ZiFztkEo6FHswocXw"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"no"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1520998774032"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"gatewayURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.bitro-pay.com/gateway/invoice/ZiFztkEo6FHswocXw"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"productId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"your product id"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"productName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"your product name"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"productPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"productCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KRW"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"userData"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wait"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.01</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>gatewayURL 로 페이지를 이동시켜 주세요.</p>
+
+<p>결제 상태가 변경될때마다 callbackURL 로 아래 형식과 같은 요청을 Bitro-Pay로 부터 받으실 수 있습니다.</p>
+
+<p>Callback JSON Request Data - POST callbackURL</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"invoiceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ZiFztkEo6FHswocXw"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"no"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1520998774032"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"productId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"your product id"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"productName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"your product name"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"productPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"productCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KRW"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"userData"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.01</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>인보이스 생성</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://www.bitro-pay.com/api/v1/invoice</code></p>
+<h3 id='parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>productPrice</td>
+<td>Y</td>
+<td>Number</td>
+<td>제품가격</td>
+</tr>
+<tr>
+<td>productCurrency</td>
+<td>Y</td>
+<td>String</td>
+<td>기준통화 (KRW) - 현재는 KRW 만 지원합니다.</td>
+</tr>
+<tr>
+<td>redirectURL</td>
+<td>Y</td>
+<td>String</td>
+<td>결제완료 후 이 주소로 페이지를 전환합니다.</td>
+</tr>
+<tr>
+<td>callbackURL</td>
+<td>Y</td>
+<td>String</td>
+<td>결제 상태가 변경될때 이 주소로 변경 상태를 보내드립니다.</td>
+</tr>
+<tr>
+<td>productId</td>
+<td>N</td>
+<td>String</td>
+<td>제품 아이디</td>
+</tr>
+<tr>
+<td>productName</td>
+<td>N</td>
+<td>String</td>
+<td>제품명</td>
+</tr>
+<tr>
+<td>userData</td>
+<td>N</td>
+<td>Object</td>
+<td>회원님이 정의한 데이터 입니다. callbackURL로 데이터 전송시 동일한 데이터를 보내드립니다.</td>
+</tr>
+</tbody></table>
+<h3 id='response-parameters'>Response Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result</td>
+<td>String</td>
+<td>결과 메시지</td>
+</tr>
+<tr>
+<td>resultCode</td>
+<td>Number</td>
+<td>결과 코드</td>
+</tr>
+<tr>
+<td>data</td>
+<td>Object</td>
+<td>결과 데이터</td>
+</tr>
+<tr>
+<td>data.invoiceId</td>
+<td>String</td>
+<td>송장아이디</td>
+</tr>
+<tr>
+<td>data.no</td>
+<td>String</td>
+<td>송장번호</td>
+</tr>
+<tr>
+<td>data.gatewayURL</td>
+<td>String</td>
+<td>결제창 주소 - 송장별 고유 주소가 부여됩니다.</td>
+</tr>
+<tr>
+<td>data.productId</td>
+<td>String</td>
+<td>제품 아이디</td>
+</tr>
+<tr>
+<td>data.productName</td>
+<td>String</td>
+<td>제품명</td>
+</tr>
+<tr>
+<td>data.productPrice</td>
+<td>String</td>
+<td>제품가격</td>
+</tr>
+<tr>
+<td>data.productCurrency</td>
+<td>String</td>
+<td>기준통화</td>
+</tr>
+<tr>
+<td>data.userData</td>
+<td>String</td>
+<td>결제 생성 요청시 정의한 데이터</td>
+</tr>
+<tr>
+<td>data.status</td>
+<td>String</td>
+<td>결제 상태</td>
+</tr>
+<tr>
+<td>data.amount</td>
+<td>Number</td>
+<td>결제 BTC 수량</td>
+</tr>
+</tbody></table>
+<h3 id='callback-request-parameters'>Callback Request Parameters</h3>
+<p><code>POST callbackURL</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>invoiceId</td>
+<td>String</td>
+<td>송장 아이디</td>
+</tr>
+<tr>
+<td>no</td>
+<td>String</td>
+<td>송장 번호</td>
+</tr>
+<tr>
+<td>productPrice</td>
+<td>Number</td>
+<td>제품금액</td>
+</tr>
+<tr>
+<td>productCurrency</td>
+<td>String</td>
+<td>기준통화</td>
+</tr>
+<tr>
+<td>productId</td>
+<td>String</td>
+<td>제품 아이디</td>
+</tr>
+<tr>
+<td>productName</td>
+<td>String</td>
+<td>제품명</td>
+</tr>
+<tr>
+<td>userData</td>
+<td>Object</td>
+<td>회원님이 정의한 데이터</td>
+</tr>
+<tr>
+<td>status</td>
+<td>String</td>
+<td>결제 상태</td>
+</tr>
+</tbody></table>
+<h3 id='invoice-status'>Invoice Status</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ok</td>
+<td>사용자 지불 완료</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>시간초과</td>
+</tr>
+<tr>
+<td>wait</td>
+<td>사용자 지불 대기</td>
+</tr>
+<tr>
+<td>amountLow</td>
+<td>입금 금액이 결제해야할 금액보다 작은 경우</td>
+</tr>
+<tr>
+<td>amountOver</td>
+<td>입금 금액이 결제해야할 금액보다 큰 경우</td>
+</tr>
+<tr>
+<td>confirmFail</td>
+<td>지불 검증 실패</td>
+</tr>
+<tr>
+<td>confirmed</td>
+<td>검증이 2회 이상 완료된 경우. 이 상태일때 제품을 배송하시면 됩니다.</td>
+</tr>
+</tbody></table>
+<h1 id='82dac39707'>에러</h1>
+<p>아래는 BitroPay API 에러코드 목록 입니다.</p>
+
+<table><thead>
+<tr>
+<th>BitroPay Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>4000</td>
+<td>요청한 데이터 형식에 문제가 있습니다.</td>
+</tr>
+<tr>
+<td>4010</td>
+<td>인증 헤더값이 누락된 경우 - API 키를 헤더값에 추가해주세요.</td>
+</tr>
+<tr>
+<td>4011</td>
+<td>인증 헤더값이 오염된 경우 - API 키 값이 정확히 일치 하는지 확인해주세요.</td>
+</tr>
+<tr>
+<td>4012</td>
+<td>API 키가 재발급 되어 사용 불가능 한 경우 - 새로운 API 키를 입력 해주세요.</td>
+</tr>
+<tr>
+<td>4013</td>
+<td>사용자가 존재하지 않습니다. - 사용자가 사이트를 탈퇴한 경우 입니다.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">cURL</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
