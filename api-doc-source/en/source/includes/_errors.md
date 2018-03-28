@@ -8,5 +8,6 @@ BitroPay Error Code | Meaning
 4011 | Authorization Header is malformed - Please check your Authorization header string.
 4012 | Token is expired - Use new token for authorization.
 4013 | User does not exists - API Key owner removed.
+4100 | White Ip Error
 5000 | Server System Error
 5100 | BTC Amount calculation Error
