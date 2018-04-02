@@ -378,6 +378,12 @@ You must replace <code>your.api.key</code> with your personal API key.
 <td>Object</td>
 <td>User defined data. We will send this data when we request your callbackURL.</td>
 </tr>
+<tr>
+<td>email</td>
+<td>N</td>
+<td>String</td>
+<td>Buyer email address.</td>
+</tr>
 </tbody></table>
 <h3 id='response-parameters'>Response Parameters</h3>
 <table><thead>
@@ -543,6 +549,18 @@ You must replace <code>your.api.key</code> with your personal API key.
 <tr>
 <td>confirmed</td>
 <td>Complete 2 confirmation. You can shipping your product.</td>
+</tr>
+<tr>
+<td>confirmedLow</td>
+<td>Complete 2 confirmation. But amount is lower than request amount. Run refund process.</td>
+</tr>
+<tr>
+<td>confirmedOver</td>
+<td>Complete 2 confirmation. But amount is higher than request amount. Run refund process.</td>
+</tr>
+<tr>
+<td>refund</td>
+<td>환불이 완료된 경우</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>

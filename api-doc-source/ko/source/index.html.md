@@ -128,6 +128,7 @@ callbackURL | Y | String | 결제 상태가 변경될때 이 주소로 변경 �
 productId | N | String | 제품 아이디
 productName | N | String | 제품명
 userData | N | Object | 회원님이 정의한 데이터 입니다. callbackURL로 데이터 전송시 동일한 데이터를 보내드립니다.
+email | N | String | 구매자 이메일 주소. 추가시 결제창에서 이메일을 다시 입력하지 않아도 됨.
 
 ### Response Parameters
 
@@ -173,3 +174,6 @@ amountLow | 입금 금액이 결제해야할 금액보다 작은 경우
 amountOver | 입금 금액이 결제해야할 금액보다 큰 경우
 confirmFail | 지불 검증 실패
 confirmed | 검증이 2회 이상 완료된 경우. 이 상태일때 제품을 배송하시면 됩니다.
+confirmedLow | 검증이 2회 이상 완료된 되었으나 금액이 부족한 경우. 환불 프로세스 진행
+confirmedOver | 검증이 2회 이상 완료된 되었으나 금액이 초과된 경우. 환불 프로세스 진행
+refund | 환불이 완료된 경우

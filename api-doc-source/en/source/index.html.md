@@ -125,6 +125,7 @@ callbackURL | Y | String | Callback url for notify tx status update.
 productId | N | String | Your product id.
 productName | N | String | Your product name.
 userData | N | Object | User defined data. We will send this data when we request your callbackURL.
+email | N | String | Buyer email address.
 
 ### Response Parameters
 
@@ -170,3 +171,6 @@ amountLow | Amount is lower than request amount
 amountOver | Amount is higher than request amount
 confirmFail | Confirmation is failed.
 confirmed | Complete 2 confirmation. You can shipping your product.
+confirmedLow | Complete 2 confirmation. But amount is lower than request amount. Run refund process.
+confirmedOver | Complete 2 confirmation. But amount is higher than request amount. Run refund process.
+refund | 환불이 완료된 경우
