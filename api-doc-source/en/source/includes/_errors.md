@@ -12,3 +12,4 @@ BitroPay Error Code | Meaning
 4100 | White Ip Error
 5000 | Server System Error
 5100 | BTC Amount calculation Error
+9999 | System maintenance
