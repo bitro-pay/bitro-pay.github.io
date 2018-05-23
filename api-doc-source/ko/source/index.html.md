@@ -122,7 +122,7 @@ curl "https://www.bitro-pay.com/api/v1/invoice" \
 Parameter | Required | Type | Description
 --------- | -------- | ---- | -----------
 productPrice | Y | Number | 제품가격
-productCurrency | Y | String | 기준통화 (KRW) - 현재는 KRW 만 지원합니다.
+productCurrency | Y | String | 기준통화 (KRW)
 redirectURL | Y | String | 결제완료 후 이 주소로 페이지를 전환합니다.
 callbackURL | Y | String | 결제 상태가 변경될때 이 주소로 변경 상태를 보내드립니다.
 productId | N | String | 제품 아이디
